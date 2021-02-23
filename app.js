@@ -9,15 +9,41 @@ console.log(sum(7,3))
 
 // exporta la función para usarla en otros archivos 
 // (similar a la palabra clave `export` cuando se usa webpack)
-module.exports = { sum };
 
 
 
-/// Exchange exercise
+/// Exchange app
 
-const fromEuroToDollar = function(valueInEuro){
+// one euro is:
+let oneEuroIs = {
+    "JPY": 127.9, // japan yen
+    "USD": 1.2, // us dollar
+    "GBP": 0.8, // british pound
+}
+
+const fromEuroToDollar = (valueInEuro) => {
+    let valueInDollar = 0;
     // convert the given valueInEuro to dollars
-    let valueInDollar = valueInEuro * 1.2;
+    valueInDollar = valueInEuro * oneEuroIs["USD"];
     //return the doller value
     return valueInDollar;
 }
+
+const fromDollarToYen = (valueInDollar) => {
+    let valueInYen = 0;
+    // convert the given valueInEuro to dollars
+    valueInYen = valueInDollar * oneEuroIs["JPY"];
+    //return the Yen value
+    return valueInYen;
+}
+
+const fromYanToPound = (valueInDollar) => {
+    let valueInPoundn = 0;
+    // convert the given valueInEuro to dollars
+    valueInPoundn = valueInDollar * oneEuroIs["GBP"];
+    //return the Yen value
+    return valueInPoundn;
+}
+
+
+module.exports = { sum, fromEuroToDollar, fromDollarToYen, fromYanToPound }
